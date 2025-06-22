@@ -53,7 +53,7 @@
 
 <section id="student" class="container">
   <h2>વિદ્યાર્થી કોર્નર</h2>
-  <p>શિષ્યવૃત્તિ ફોર્મ અને અપડેટ્સ ગાંધી કરો.</p>
+  <p>શિષ્યવૃત્તિ ફોર્મ અને અપડેટ્સ કરો.</p>
   <a href="#apply" class="btn">ફોર્મ માટે અરજી કરો</a>
 </section>
 
@@ -76,7 +76,7 @@
 <section id="contact" class="container">
   <h2>સંપર્ક</h2>
   <p>ફોન: 6354616851, 7990850635<br>ઈ‑મેઈલ: kordiyadhruv@gmail.com<br>સરનામું: સારંગપુર, અમરેલી</p>
-  <p>Instagram: <a href="https://www.instagram.com/JKCORPservicecenter">@JKCORPservicecenter</a></p>
+  <p>Instagram: <a href="https://www.instagram.com/JKCORPservicecenter">@jkcorpservicecenter</a></p>
 </section>
 
 <section id="faqs" class="container">
