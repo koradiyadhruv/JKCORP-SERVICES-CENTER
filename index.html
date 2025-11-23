@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JKCORP SERVICE CENTER</title>
+  <title>JKCORP SERVICE CENTER | સર્વ શ્રેષ્ઠ સરકારી સેવા</title>
+  <meta name="description" content="JKCORP SERVICE CENTER - સરકારી દસ્તાવેજ, યોજનાઓ, વિદ્યાર્થી સહાય, ખેડૂત સહાય માટે વિશ્વસનીય અને ઝડપી સેવા.">
+  <meta name="keywords" content="JKCORP, Service Center, Government Documents, Scholarships, Farmer Schemes, Gujarat, સરકારી સેવા, Student Help, WhatsApp">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="JKCORP TEAM">
+  <link rel="icon" href="favicon.ico">
+  <meta property="og:title" content="JKCORP SERVICE CENTER | સર્વ શ્રેષ્ઠ સરકારી સેવા">
+  <meta property="og:description" content="JKCORP SERVICE CENTER - વિશ્વસનીય અને ઝડપી સર્વિસીસ, વિવિધ સરકારી યોજનાઓ, દસ્તાવેજ અને વધુ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jkcorpservicecenter.in/">
+  <meta property="og:image" content="https://jkcorpservicecenter.in/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1565c0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+Gujarati:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -18,19 +30,28 @@
       --font-main: 'Montserrat', 'Noto Sans Gujarati', Arial, sans-serif;
       --font-gujarati: 'Noto Sans Gujarati', sans-serif;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-main);
-      background: var(--light-bg);
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center center/cover fixed no-repeat, var(--light-bg);
       color: #163357;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(246,250,253,0.90);
+      z-index: -1;
+      pointer-events: none;
+    }
+    main { flex: 1; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 18px; }
-
-    /* Header & Nav */
     header {
       background: var(--gradient);
       color: #fff;
@@ -41,16 +62,16 @@
       z-index: 30;
     }
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-family: 'Montserrat', var(--font-gujarati);
       font-weight: 800;
       letter-spacing: 2px;
       text-align: center;
-      text-shadow: 0 2px 12px #00bcd490, 0 1px 0 #0002;
       margin-bottom: 10px;
       background: -webkit-linear-gradient(120deg, #fff 40%, #b2f7ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 12px #00bcd490, 0 1px 0 #0002;
     }
     nav {
       display: flex;
@@ -58,15 +79,15 @@
       flex-wrap: wrap;
       gap: 18px;
       margin-bottom: 4px;
-      transition: left .3s;
       font-family: 'Montserrat', var(--font-gujarati);
+      transition: left 0.3s;
     }
     nav a {
       color: var(--main-blue);
       background: var(--white);
       border: 2.5px solid var(--main-blue);
       text-decoration: none;
-      padding: 11px 28px;
+      padding: 11px 24px;
       border-radius: 30px;
       font-weight: 800;
       letter-spacing: 1px;
@@ -82,7 +103,6 @@
       border-color: var(--accent);
       box-shadow: 0 3px 16px #1565c033;
     }
-    nav a:focus { outline: 2px solid var(--accent); }
     .hamburger {
       display: none;
       position: absolute;
@@ -137,7 +157,10 @@
         font-size: 1.18rem;
       }
       .hamburger { display: block; }
-      header h1 { font-size: 1.10rem; }
+      header h1 { font-size: 1.20rem; }
+      .gallery-img { width: 95px; height: 95px; }
+      .gallery-img-wrap { width: 110px; height: 110px; }
+      .grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
     }
     .menu-overlay {
       display: none;
@@ -149,12 +172,32 @@
       transition: opacity .25s;
     }
     .menu-overlay.show { display: block; }
-
-    /* Hero */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #25D366;
+      color: #fff;
+      font-weight: bold;
+      font-family: 'Montserrat', 'Noto Sans Gujarati', Arial, sans-serif;
+      padding: 14px 32px;
+      border-radius: 24px;
+      font-size: 1.18rem;
+      border: none;
+      box-shadow: 0 2px 10px #1565c010;
+      margin: 18px 0 0 0;
+      text-decoration: none;
+      transition: background .18s, box-shadow .18s;
+    }
+    .whatsapp-btn:focus, .whatsapp-btn:hover {
+      background: #128C7E;
+      color: #fff;
+      box-shadow: 0 5px 18px #25D36633;
+    }
+    .whatsapp-btn i { margin-right: 14px; font-size: 1.7rem; }
     .hero {
       background: var(--gradient);
       color: #fff;
-      padding: 76px 0 54px 0;
+      padding: 60px 0 36px 0;
       text-align: center;
       border-radius: 0 0 40px 40px;
       margin-bottom: 45px;
@@ -163,40 +206,40 @@
       overflow: hidden;
     }
     .hero-maintext {
-      font-size: 2.7rem;
+      font-size: 2.1rem;
       font-family: 'Montserrat', var(--font-gujarati);
       font-weight: bold;
-      margin-bottom: 13px;
+      margin-bottom: 14px;
       letter-spacing: 1.2px;
-      text-shadow: 0 2px 11px #00bcd488, 0 1px 0 #0001;
       background: -webkit-linear-gradient(120deg, #fff 30%, #00bcd4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 11px #00bcd488, 0 1px 0 #0001;
     }
     .hero-subtext {
-      font-size: 1.15rem;
-      margin-bottom: 26px;
+      font-size: 1.10rem;
+      margin-bottom: 22px;
       font-family: var(--font-gujarati);
-      opacity: 0.99;
+      opacity: 0.97;
       font-weight: 600;
     }
     .btn {
       background: var(--main-blue);
       color: #fff;
-      padding: 15px 36px;
+      padding: 14px 32px;
       border-radius: 28px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1.16rem;
+      font-size: 1.13rem;
       border: none;
       cursor: pointer;
       border: 2px solid var(--main-blue);
       box-shadow: 0 2px 10px #1565c010;
       margin-top: 10px;
-      display: inline-block;
       letter-spacing: 0.5px;
       transition: background .18s, color .18s, border .18s, box-shadow .18s;
       font-family: 'Montserrat', var(--font-gujarati);
+      display: inline-block;
     }
     .btn:hover, .btn:focus {
       background: var(--accent);
@@ -204,8 +247,6 @@
       border-color: var(--accent);
       box-shadow: 0 5px 18px #00bcd422;
     }
-
-    /* Gallery */
     .gallery-section {
       background: var(--white);
       padding: 32px 0 22px 0;
@@ -224,76 +265,60 @@
       letter-spacing: 1px;
       text-shadow: 0 1px 2px #fff9;
     }
-    .gallery-row {
-      display: flex;
-      gap: 38px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0 auto;
-      padding: 0 10px;
-    }
+    .gallery-row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
     .gallery-img-wrap {
       background: #fff;
       border-radius: 50%;
       box-shadow: 0 6px 24px rgba(21,101,192,0.14);
       border: 6px solid var(--main-blue);
-      width: 165px;
-      height: 165px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
+      width: 135px; height: 135px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 8px;
       transition: box-shadow .18s, transform .14s, border-color .16s;
     }
     .gallery-img-wrap:hover {
       box-shadow: 0 12px 36px #1565c029;
-      transform: scale(1.09) rotate(-2deg);
+      transform: scale(1.08) rotate(-1deg);
       border-color: var(--accent);
     }
     .gallery-img {
-      width: 136px;
-      height: 136px;
+      width: 97px; height: 97px;
       object-fit: cover;
       border-radius: 50%;
-      display: block;
-      transition: filter .15s;
       border: 2px solid #fff;
       background: #fff;
       box-shadow: 0 1.5px 7px #1565c111;
+      display: block;
+      transition: filter .15s;
     }
-    .gallery-img-wrap:hover .gallery-img {
-      filter: brightness(1.09) saturate(1.13);
-    }
+    .gallery-img-wrap:hover .gallery-img { filter: brightness(1.09) saturate(1.11); }
     .gallery-caption {
       text-align: center;
       color: var(--main-blue);
       font-weight: 600;
-      margin-top: 5px;
+      margin-top: 6px;
       font-size: 1.07rem;
       letter-spacing: 0.4px;
     }
-
-    /* Services Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 32px;
-      margin-top: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 24px;
+      margin-top: 15px;
     }
     .service {
       display: flex;
       flex-direction: column;
       align-items: center;
       background: var(--icon-bg);
-      border-radius: 20px;
-      padding: 32px 10px 26px 10px;
+      border-radius: 18px;
+      padding: 26px 10px 21px 10px;
       box-shadow: 0 2px 9px rgba(21,101,192,0.10);
       border: 2.2px solid #ddefff;
-      min-width: 120px;
-      min-height: 125px;
-      transition: box-shadow .17s, border-color .17s, background .16s;
-      cursor: pointer;
-      position: relative;
+      min-width: 100px;
+      min-height: 105px;
+      transition: box-shadow .16s, border-color .16s, background .16s;
+      cursor: pointer; position: relative;
     }
     .service:hover {
       background: #e0f7fa;
@@ -301,13 +326,13 @@
       box-shadow: 0 5px 18px #1565c033;
     }
     .service-icon {
-      font-size: 2.7rem;
+      font-size: 2.1rem;
       color: var(--main-blue);
-      margin-bottom: 13px;
+      margin-bottom: 10px;
       border-radius: 50%;
       background: linear-gradient(135deg, #e3f2fd 60%, #fff 100%);
       box-shadow: 0 2px 7px #1565c022;
-      padding: 16px 18px 13px 18px;
+      padding: 12px 14px 10px 14px;
       transition: color .18s, background .18s;
       border: 2px solid #fff;
       display: flex;
@@ -320,7 +345,7 @@
     }
     .service p {
       font-family: var(--font-gujarati);
-      font-size: 1.12rem;
+      font-size: 1.09rem;
       font-weight: 700;
       color: #234;
       text-align: center;
@@ -328,128 +353,93 @@
       letter-spacing: .2px;
       transition: color .18s;
     }
-    .service:hover p {
-      color: var(--main-blue);
-    }
-
-    /* FAQ Accordion */
+    .service:hover p { color: var(--main-blue); }
     #faqs .accordion {
       border-radius: 14px;
       background: #f5faff;
       box-shadow: 0 2px 10px #1565c010;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       overflow: hidden;
       border-left: 5px solid var(--main-blue);
       border-right: 3px solid var(--accent);
-      transition: background .21s;
+      transition: background .18s;
     }
-    #faqs .accordion.open { background: var(--light-blue); }
+    #faqs .accordion.open { background: var(--light-bg); }
     #faqs .accordion-header {
       cursor: pointer;
-      padding: 20px 27px;
+      padding: 15px 22px;
       font-weight: 800;
       color: #1565c0;
-      font-size: 1.16rem;
+      font-size: 1.13rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: transparent;
       outline: none;
-      transition: background .14s;
       border: none;
       width: 100%;
       text-align: left;
       font-family: var(--font-gujarati);
     }
-    #faqs .accordion-header:hover, #faqs .accordion-header:focus {
-      background: #bbdefb44;
-    }
-    #faqs .accordion-icon {
-      font-size: 1.4rem;
-      transition: transform .18s;
-      margin-left: 18px;
-      color: #1565c0;
-    }
-    #faqs .accordion.open .accordion-icon {
-      transform: rotate(90deg);
-    }
+    #faqs .accordion-header:hover, #faqs .accordion-header:focus { background: #bbdefb4b; }
+    #faqs .accordion-icon { font-size: 1.3rem; transition: transform .18s; margin-left: 14px; color: #1565c0; }
+    #faqs .accordion.open .accordion-icon { transform: rotate(90deg); }
     #faqs .accordion-body {
-      padding: 0 27px 20px 27px;
+      padding: 0 22px 15px 22px;
       background: #f5faff;
       color: #213;
-      font-size: 1.07rem;
+      font-size: 1.05rem;
       display: none;
-      animation: fadeIn .3s;
       font-family: var(--font-gujarati);
+      animation: fadeIn .24s;
     }
-    #faqs .accordion.open .accordion-body {
-      display: block;
-    }
+    #faqs .accordion.open .accordion-body { display: block; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
     .card {
       background: #fff;
       border-radius: 18px;
       box-shadow: var(--shadow);
-      margin: 44px 0;
-      padding: 37px 28px;
+      margin: 38px 0;
+      padding: 30px 18px;
       border-left: 6px solid var(--main-blue);
       border-bottom: 2px solid var(--accent);
     }
-    h2, h3 { color: var(--main-blue); margin-bottom: 15px; }
-    h2 { font-size: 1.45rem; }
-    h3 { font-size: 1.17rem; margin-top: 12px; }
-
+    h2, h3 { color: var(--main-blue); margin-bottom: 12px; }
+    h2 { font-size: 1.32rem; }
+    h3 { font-size: 1.10rem; margin-top: 10px; }
     .form-section button[type="submit"] {
       background: var(--main-blue);
       color: #fff;
       border: none;
-      padding: 12px 0;
+      padding: 10px 0;
       border-radius: 22px;
-      font-size: 1.13rem;
+      font-size: 1.07rem;
       font-weight: 700;
       cursor: pointer;
       transition: background .2s;
     }
-    .form-section button[type="submit"]:hover {
-      background: #0d47a1;
-    }
     .form-note {
-      margin-top: 13px;
-      font-size: 1.01rem;
+      margin-top: 10px;
+      font-size: 1.00rem;
       color: #333;
       opacity: .95;
     }
-
     .footer {
       background: var(--gradient);
       color: #fff;
       text-align: center;
-      padding: 23px 0 12px 0;
-      font-size: 1.13rem;
+      padding: 18px 0 7px 0;
+      font-size: 1rem;
       border-radius: 28px 28px 0 0;
-      margin-top: 52px;
+      margin-top: 46px;
       box-shadow: 0 -2px 14px #0001;
-      letter-spacing: 0.5px;
       flex-shrink: 0;
       font-weight: 600;
     }
     .footer span {
-      font-size: 1.22rem;
-      vertical-align: middle;
+      font-size: 1.13rem;
       color: #00bcd4;
-      padding-left:2px;
-    }
-    @media (max-width: 900px) {
-      .gallery-row { gap: 18px; }
-      .grid { gap: 19px 10px; }
-    }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.13rem; }
-      .footer { font-size: 0.98rem; }
-      .gallery-img { width: 95px; height: 95px; }
-      .gallery-img-wrap { width: 110px; height: 110px; }
-      .grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      padding-left: 2px;
     }
   </style>
 </head>
@@ -457,12 +447,12 @@
 <header>
   <div class="container">
     <h1>JKCORP SERVICE CENTER</h1>
-    <button class="hamburger" aria-label="Open menu" aria-controls="mainnav">
+    <button class="hamburger" aria-label="Open menu" aria-controls="mainnav" aria-expanded="false">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
-    <nav id="mainnav">
+    <nav id="mainnav" role="navigation" aria-label="મુખ્ય">
       <a href="#home">હોમ</a>
       <a href="#about">અમારા વિશે</a>
       <a href="#services">સેવા</a>
@@ -475,15 +465,17 @@
     <div class="menu-overlay"></div>
   </div>
 </header>
-
+<main>
 <section id="home" class="hero">
   <div class="container">
-    <div class="hero-maintext">તમારી જાહેર દસ્તાવેજ અને યોજના સેવાઓ માટે વિશ્વસનીય અને ઝડપી સેવા કેન્દ્ર</div>
-    <div class="hero-subtext">અમારા દ્વારા તમામ પ્રકારની સરકારી સેવા, દસ્તાવેજ અને વિદ્યાર્થી યોજનાઓ માટે એક જ જગ્યા પર સહાય મેળવો.</div>
-    <a href="#services" class="btn">સેવાઓ જુઓ અને શરૂ કરો</a>
+    <div class="hero-maintext">તમારી જાહેર દસ્તાવેજ અને યોજના સેવાઓ માટે વિશ્વસનીય અને ઝડપી સેવા</div>
+    <div class="hero-subtext">અમારા દ્વારા સર્વ પ્રકારની સરકારી સેવા, દસ્તાવેજ, યોમાના અને વિદ્યાર્થી સહાય ઉપલબ્ધ છે.</div>
+    <a href="#services" class="btn">સેવાઓ જુઓ અને શરૂ કરો</a><br>
+    <a class="whatsapp-btn" href="https://wa.me/916354616851?text=Hi%2C%20I%20want%20to%20know%20more%20about%20JKCORP%20SERVICE%20CENTER" target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> WhatsApp પર સંપર્ક કરો
+    </a>
   </div>
 </section>
-
 <section class="gallery-section">
   <div class="container">
     <div class="gallery-title"><i class="fa fa-image"></i> અમારી સર્વિસીસને લગતા ફોટા</div>
@@ -515,138 +507,95 @@
     </div>
   </div>
 </section>
-
 <section id="about" class="container card">
   <h2><span class="service-icon"><i class="fa fa-info-circle"></i></span> અમારા વિશે</h2>
-  <p>
-    JKCORP SERVICE CENTER એ સરકારી દસ્તાવેજ સેવા, વિદ્યાર્થીઓ માટે શિષ્યવૃત્તિ અને વિવિધ યોજનાઓની સહાય માટે વિશિષ્ટ બિઝનેસ કેન્દ્ર છે.<br>
-    અમારી ટીમ તમારી દરેક જરૂરિયાત માટે પ્રતિબદ્ધ અને વિશ્વસનીય છે.
-  </p>
-  <h3>અમારું વિઝન</h3>
-  <p>
-    દરેક નાગરિક સુધી વિશ્વસનીય, ઝડપી અને સરળ સરકારી સેવા પહોંચાડવી અને સમાજના વિકાસમાં યોગદાન આપવું.
-  </p>
-  <h3>અમારું મિશન</h3>
-  <p>
-    નવીનતમ ટેક્નોલોજી અને શ્રેષ્ઠ સેવાઓ દ્વારા દસ્તાવેજ અને યોજના સંબંધિત દરેક પ્રક્રિયા એક જ જગ્યાએ સરળતાથી પૂરી પાડવી.
-  </p>
+  <p>JKCORP SERVICE CENTER એ સરકારી દસ્તાવેજ, યોજનાઓ, શિક્ષણ સહાય અને ખેડૂતો/નાગરિકો માટે સર્વપ્રકારના કામ માટે વિશ્વસનીય સેવા કેન્દ્ર છે.</p>
+  <h3>વિઝન</h3>
+  <p>દરેક નાગરિક સુધી વિશ્વસનીય, ઝડપી અને સરળ સરકારી સેવા પહોંચાડવી અને સમાજનો વિકાસ.</p>
+  <h3>મિશન</h3>
+  <p>ટેકનોલોજી અને શ્રેષ્ઠ ટીમના આધારે સર્વપ્રકારના દસ્તાવેજ અને યોજના સેવા વધારે સરળ, ઝડપી અને સુરક્ષિત રીતે ઉપલબ્ધ કરવી.</p>
 </section>
-
 <section id="services" class="container card">
   <h2><span class="service-icon"><i class="fa fa-briefcase"></i></span> અમારી સેવાઓ</h2>
   <div class="grid">
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-id-card"></i></span>
-      <p>આધાર કાર્ડ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-credit-card"></i></span>
-      <p>પાન કાર્ડ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-vote-yea"></i></span>
-      <p>મતદાર ID</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-car"></i></span>
-      <p>ડ્રાઇવિંગ લાઇસન્સ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-passport"></i></span>
-      <p>પાસપોર્ટ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-users"></i></span>
-      <p>ઈ‑શ્રમ કાર્ડ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-school"></i></span>
-      <p>શિષ્યવૃત્તિ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-landmark"></i></span>
-      <p>સરકારી યોજનાઓ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-leaf"></i></span>
-      <p>ખેડૂતોના ફોર્મ</p>
-    </div>
-    <div class="service">
-      <span class="service-icon"><i class="fa-solid fa-briefcase"></i></span>
-      <p>અન્ય સરકારી યોજનાઓ</p>
-    </div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-id-card"></i></span><p>આધાર કાર્ડ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-credit-card"></i></span><p>પાન કાર્ડ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-vote-yea"></i></span><p>મતદાર ID</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-car"></i></span><p>ડ્રાઇવિંગ લાઇસન્સ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-passport"></i></span><p>પાસપોર્ટ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-users"></i></span><p>ઈ‑શ્રમ કાર્ડ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-school"></i></span><p>શિષ્યવૃત્તિ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-landmark"></i></span><p>સરકારી યોજનાઓ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-leaf"></i></span><p>ખેડૂતોના ફોર્મ</p></div>
+    <div class="service"><span class="service-icon"><i class="fa-solid fa-briefcase"></i></span><p>અન્ય સરકારી લોકપ્રિય યોજનાઓ</p></div>
   </div>
-  <p style="margin-top:22px;">
-    અમે ખેડૂતો માટે વિવિધ ફોર્મ ભરવાની સેવા, તેમજ અન્ય તમામ પ્રકારની સરકારી યોજનાઓ જેવી કે પેન્શન, સહાય યોજના, આવાસ યોજના, મહિલા અને બાળ કલ્યાણ યોજના, અને વધુ માટે માર્ગદર્શન અને અરજી પ્રક્રિયામાં સહાય કરીએ છીએ.
-  </p>
+  <p style="margin-top:18px;">ખેડૂતો, વિદ્યાર્થીઓ અને સર્વ નાગરિકો માટે દરેક સરકારી દસ્તાવેજ અને ફોર્મ સર્વિસ મૂલ્યવાન, ઝડપી અને વિશ્વસનીય છે.</p>
 </section>
-
 <section id="student" class="container card">
   <h2><span class="service-icon"><i class="fa fa-user-graduate"></i></span> વિદ્યાર્થી કોર્નર</h2>
-  <p>શિષ્યવૃત્તિ ફોર્મ, નવી યોજનાઓ અને અપડેટ્સ માટે અહીં સંપર્ક કરો. દરેક વિદ્યાર્થી માટે માર્ગદર્શન અને સહાય ઉપલબ્ધ છે.</p>
+  <p>રાષ્ટ્રીય & રાજ્ય શિષ્યવૃત્તિ, નવી સરકારની યોજનાઓ અને કોચિંગ સહાય વિશે જાણો. દરેક વિદ્યાર્થી માટે માર્કશીટ/અરજીની સહાય ઉપલબ્ધ.</p>
   <a href="#apply" class="btn">શિષ્યવૃત્તિ માટે અરજી કરો</a>
 </section>
-
 <section id="schemes" class="container card">
-  <h2><span class="service-icon"><i class="fa fa-landmark"></i></span> સરકારી યોજનાઓ</h2>
-  <p>લોકપ્રિય અને નવી સરકારી યોજનાઓ, જરૂરી દસ્તાવેજો અને અરજી પ્રક્રિયા વિશે જાણો. અમારી ટીમ દ્વારા સંપૂર્ણ માર્ગદર્શન મળશે.</p>
+  <h2><span class="service-icon"><i class="fa fa-landmark"></i></span> યોજનાઓ અને સરકારી યોજના</h2>
+  <p>લોકપ્રિય, નવી, અથવા સરકારની તમામ યોજનાઓ, ઈ-શ્રમ, PM કેવી સ્કીમ, ખેડૂતોની યોજનાઓ અને અરજી માહિતી.</p>
 </section>
-
 <section id="apply" class="container card form-section">
   <h2><span class="service-icon"><i class="fa fa-edit"></i></span> અરજી કરો</h2>
-  <a href="https://forms.gle/E5ptqiBL64RwMbUc6" target="_blank" class="btn" style="margin-bottom:18px;">અરજી માટે અહીં ક્લિક કરો</a>
-  <p class="form-note">તમારી માહિતી સુરક્ષિત રહેશે. અમારી ટીમ ટૂંક સમયમાં સંપર્ક કરશે.</p>
-</section>
-
+  <a href="https://forms.gle/E5ptqiBL64RwMbUc6" target="_blank" class="btn" style="margin-bottom:14px;">અરજી માટે અહીં ક્લિક કરો</a>
+  <p class="form-note"> ફોર્મ ભરશો તો તમારી માહિતી સુરક્ષિત રહેશે. અમારી ટીમ ટૂંક સમયમાં સંપર્ક કરશે.</p>
+  <a class="whatsapp-btn" href="https://wa.me/916354616851?text=મારે%20JKCORP%20SERVICE%20CENTER%20માં%20અરજી%20કરવી%20છે" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> WhatsApp દ્રારા અરજી કરો
+  </a>
+  </section>
 <section id="contact" class="container card">
   <h2><span class="service-icon"><i class="fa fa-address-book"></i></span> સંપર્ક કરો</h2>
   <p>
-    <strong>ફોન:</strong> 6354616851, 7990850635<br>
-    <strong>ઈ‑મેઈલ:</strong> kordiyadhruv@gmail.com<br>
-    <strong>સરનામું:</strong> સારંગપુર, અમરેલી
-  </p>
-  <p>
+    <strong>ફોન:</strong> <a href="tel:6354616851">6354616851</a>, <a href="tel:7990850635">7990850635</a><br>
+    <strong>ઈ‑મેઈલ:</strong> <a href="mailto:kordiyadhruv@gmail.com">kordiyadhruv@gmail.com</a><br>
+    <strong>સરનામું:</strong> સારંગપુર, અમરેલી<br>
     <strong>Instagram:</strong> <a href="https://www.instagram.com/jkcorpservicecenter" target="_blank">@jkcorpservicecenter</a>
   </p>
+  <a class="whatsapp-btn" href="https://wa.me/916354616851?text=હાય%20મારે%20JKCORP%20SERVICE%20CENTER%20ની%20મદદ%20જોઈએ%20છે" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> WhatsApp ચેટ શરૂ કરો
+  </a>
 </section>
-
 <section id="faqs" class="container card">
   <h2><span class="service-icon"><i class="fa fa-question-circle"></i></span> વારંવાર પૂછાતા પ્રશ્નો (FAQs)</h2>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: દસ્તાવેજોની પ્રક્રિયા કેટલો સમય લે છે?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: સામાન્ય રીતે 2 થી 7 દિવસ.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: દસ્તાવેજોની પ્રક્રિયા કેટલો સમય લે છે?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: આપણા દ્વારા પ્રક્રિયા સામાન્ય રીતે 2-7 દિવસમાં થાય છે.</div>
   </div>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: શિષ્યવૃત્તિ માટે કયા દસ્તાવેજો જરૂરી છે?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: આધાર કાર્ડ, સ્કૂલ-કોલેજ બોનાફાઇડ, બેંક પાસબુક, માર્કશીટ.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: શિષ્યવૃત્તિ માટે કયા દસ્તાવેજો જરૂરી છે?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: આધાર કાર્ડ, સ્કૂલ/કોલેજ બોનાફાઇડ, બેંક પાસબુક, मार्कશીટ.</div>
   </div>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: કન્સલ્ટેશન ફી કેટલીછે?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: વિવિધ સેવાઓ માટે અલગ-અલગ, કૃપા કરીને સંપર્ક કરો.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: કન્સલ્ટેશન ફી કેટલીછે?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: વિવિધ સેવાઓ માટે ફી અલગ-અલગ છે, કૃપા કરીને સંપર્ક કરો.</div>
   </div>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: અરજી કેવી રીતે કરવી?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: ઉપર આપેલા "અરજી કરો" બટન પર ક્લિક કરો અથવા સંપર્ક કરો.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: અરજી કેવી રીતે કરવી?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: ઉપર આપેલા "અરજી કરો" બટન પર ક્લિક કરો અથવા WhatsApp કે ફોન કરો.</div>
   </div>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: ખેડૂતો માટે કઈ સેવાઓ ઉપલબ્ધ છે?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: ખેડૂતોના ફોર્મ, સહાય યોજનાઓ, જમીન સંબંધિત દસ્તાવેજ, અને અન્ય સરકારી યોજનાઓ માટે સંપૂર્ણ માર્ગદર્શન આપવામાં આવે છે.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: ખેડૂતો માટે કઈ સેવાઓ ઉપલબ્ધ છે?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: ખેડૂતોના ફોર્મ, સહાય યોજનાઓ, જમીન સંબંધિત દસ્તાવેજ, વગેરે માટે અધિકૃત સેવા.</div>
   </div>
   <div class="accordion">
-    <button class="accordion-header"><span>પ્ર: અન્ય સરકારી યોજનાઓ માટે શું કરવું?</span> <span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
-    <div class="accordion-body">ઉ: કૃપા કરીને અમારો સંપર્ક કરો, અમે દરેક પ્રકારની સરકારી યોજના અને ફોર્મ માટે સહાય કરીએ છીએ.</div>
+    <button class="accordion-header" tabindex="0"><span>પ્ર: અન્ય સરકારી યોજનાઓ માટે શું કરવું?</span><span class="accordion-icon"><i class="fa fa-angle-right"></i></span></button>
+    <div class="accordion-body">ઉ: કૃપા કરીને અમારો સંપર્ક કરો, અમે દરેક પ્રકારની યોજના માટે મદદ કરીએ છીએ.</div>
   </div>
 </section>
-
+</main>
 <footer class="footer">
   <div class="container">
     <p>© 2025 JKCORP SERVICE CENTER. તમામ હકો અધિકાર હેઠળ છે.</p>
     <p>Developed with <span>&#10084;</span> by JKCORP TEAM</p>
   </div>
 </footer>
-
 <script>
-  // Hamburger menu & slide-out nav
+  // Hamburger menu & slide-out nav mobile fix
   const hamburger = document.querySelector('.hamburger');
   const nav = document.getElementById('mainnav');
   const overlay = document.querySelector('.menu-overlay');
@@ -654,11 +603,15 @@
     hamburger.classList.toggle('active');
     nav.classList.toggle('open');
     overlay.classList.toggle('show');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    hamburger.setAttribute("aria-expanded", nav.classList.contains('open'));
   });
   overlay.addEventListener('click', () => {
     hamburger.classList.remove('active');
     nav.classList.remove('open');
     overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    hamburger.setAttribute("aria-expanded", false);
   });
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
@@ -666,11 +619,12 @@
         hamburger.classList.remove('active');
         nav.classList.remove('open');
         overlay.classList.remove('show');
+        document.body.style.overflow = '';
+        hamburger.setAttribute("aria-expanded", false);
       }
     });
   });
-
-  // FAQ Accordion
+  // FAQ accordion accessible
   document.querySelectorAll('#faqs .accordion-header').forEach(header => {
     header.addEventListener('click', function() {
       const acc = this.parentElement;
@@ -678,8 +632,16 @@
       if (!acc.classList.contains('open')) {
         all.forEach(a => a.classList.remove('open'));
         acc.classList.add('open');
+        header.setAttribute("aria-expanded", true);
       } else {
         acc.classList.remove('open');
+        header.setAttribute("aria-expanded", false);
+}
+    });
+    header.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        header.click();
       }
     });
   });
