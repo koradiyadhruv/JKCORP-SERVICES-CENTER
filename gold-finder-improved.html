@@ -1,17 +1,57 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Improved Gold Finder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Finder AI 2026</title>
+    <style>
+        body { margin: 0; background: #000; color: #FFD700; font-family: sans-serif; text-align: center; }
+        video { width: 100%; height: 60vh; object-fit: cover; border-bottom: 2px solid #FFD700; }
+        .btn { background: #FFD700; color: #000; padding: 20px; border-radius: 50px; font-weight: bold; border: none; margin-top: 20px; width: 80%; cursor: pointer; }
+        #status { font-size: 24px; margin-top: 15px; }
+    </style>
 </head>
 <body>
-    <h1>Improved Gold Detection</h1>
-    <p>We have enhanced our gold detector to improve sensitivity and better detect small pieces of gold.</p>
-    <h2>Features:</h2>
-    <ul>
-        <li>Enhanced Sensitivity</li>
-        <li>Better Sound Alerts</li>
-        <li>Gujarati Language Support</li>
-    </ul>
-    <p>અમે અમલમાં લાવી રહ્યા છીએ એએફઇડી પીક.આઈ એસમાટે સઘન તત્ત્વો સાથેની ધાતુઓ શોધવા!<br>
-    એફઇચ તરીકે ટેકનિકલ મોળો વિશે વધુ જાણકારી મેળવવા માટે અમારી વેબસાઇટ જોવો.</p>
+    <video id="v" autoplay playsinline></video>
+    <button class="btn" onclick="initScanner()">ACTIVATE SCANNER</button>
+    <div id="status">READY</div>
+
+    <script>
+        const v = document.getElementById('v');
+        const s = document.getElementById('status');
+        const audio = new (window.AudioContext || window.webkitAudioContext)();
+
+        async function initScanner() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                v.srcObject = stream;
+                s.innerText = "SCANNING...";
+                setInterval(analyzeFrame, 200);
+            } catch (e) { alert("BUG FIX: You MUST use an HTTPS website to access the camera."); }
+        }
+
+        function analyzeFrame() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 100; canvas.height = 100;
+            ctx.drawImage(v, 0, 0, 100, 100);
+            const p = ctx.getImageData(0, 0, 100, 100).data;
+            let goldFound = 0;
+            for (let i = 0; i < p.length; i += 4) {
+                if (p[i] > 200 && p[i+1] > 160 && p[i+2] < 100) goldFound++;
+            }
+            if (goldFound > 10) {
+                s.innerText = "GOLD DETECTED!";
+                beep();
+                if (navigator.vibrate) navigator.vibrate(100);
+            } else { s.innerText = "SCANNING..."; }
+        }
+
+        function beep() {
+            const o = audio.createOscillator();
+            o.connect(audio.destination);
+            o.frequency.value = 1200; o.start(); o.stop(audio.currentTime + 0.1);
+        }
+    </script>
 </body>
 </html>
