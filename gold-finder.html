@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>સોના શોધક - Gold Finder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #FFD700;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #000;
+            padding: 15px;
+            border-bottom: 3px solid #FFD700;
+            box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
+        }
+        h1 {
+            font-size: 28px;
+            margin: 5px 0;
+            text-shadow: 0 0 10px #FFD700;
+        }
+        .subtitle { font-size: 12px; color: #AAA; }
+        video {
+            width: 100%;
+            height: 55vh;
+            object-fit: cover;
+            border: 3px solid #FFD700;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            background: #1a1a1a;
+            border-top: 2px solid #FFD700;
+            flex-wrap: wrap;
+        }
+        button {
+            background: #FFD700;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #FFF; 
+            box-shadow: 0 0 15px #FFD700;
+            transform: scale(1.05);
+        }
+        button:active { transform: scale(0.95); }
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 10px;
+            background: #0a0a0a;
+            border-radius: 20px;
+        }
+        input[type="range"] {
+            width: 120px;
+            height: 5px;
+            cursor: pointer;
+        }
+        .slider-label {
+            font-size: 12px;
+            color: #FFD700;
+        }
+        .status-area {
+            padding: 15px;
+            background: #0a0a0a;
+            border-top: 2px solid #FFD700;
+        }
+        #status {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+            margin: 10px 0;
+        }
+        #goldCount {
+            font-size: 18px;
+            color: #FFA500;
+        }
+        #sensitivity {
+            font-size: 14px;
+            color: #AAA;
+        }
+        .alert {
+            animation: pulse 0.5s;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 સોના શોધક</h1>
+            <p class="subtitle">Gold Finder - Digital Metal Detector</p>
+        </header>
+        <video id="camera" autoplay playsinline></video>
+        <div class="controls">
+            <button onclick="startScanning()">▶️ શોધવા શરૂ કરો</button>
+            <button onclick="stopScanning()">⏹️ રોકો</button>
+            <div class="slider-container">
+                <span class="slider-label">સંવેદનશીલતા:</span>
+                <input type="range" id="sensitivity-slider" min="5" max="50" value="15" onchange="updateSensitivity()">
+                <span id="sensitivity-value">15</span>
+            </div>
+        </div>
+        <div class="status-area">
+            <div id="status">તૈયાર છું</div>
+            <div id="goldCount">શોધ: 0</div>
+            <div id="sensitivity">સંવેદનશીલતા: 15</div>
+        </div>
+    </div>
+    <script>
+        const camera = document.getElementById('camera');
+        const statusDiv = document.getElementById('status');
+        const goldCountDiv = document.getElementById('goldCount');
+        const sensitivityDiv = document.getElementById('sensitivity');
+        const sensitivitySlider = document.getElementById('sensitivity-slider');
+        let scanning = false;
+        let goldDetectionCount = 0;
+        let currentSensitivity = 15;
+        let scanInterval = null;
+        let lastAlertTime = 0;
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        async function startScanning() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        facingMode: "environment",
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 }
+                    },
+                    audio: false
+                });
+                camera.srcObject = stream;
+                scanning = true;
+                statusDiv.textContent = "🔍 સ્કેન કરી રહ્યા છીએ...";
+                statusDiv.style.color = "#00FF00";
+                scanInterval = setInterval(analyzeFrame, 200);
+            } catch (error) {
+                alert("⚠️ કેમેરા ઍક્સેસ આવશ્યક છે!\n\nતમારે HTTPS વેબસાઇટ પર હોવું આવશ્યક છે અને કેમેરાની પરવાનગી આપવી પડશે.");
+                statusDiv.textContent = "❌ કેમેરા ખોલવા માટે નિષ્ફળ";
+            }
+        }
+        function stopScanning() {
+            scanning = false;
+            if (scanInterval) clearInterval(scanInterval);
+            statusDiv.textContent = "⏹️ રોક્યું";
+            statusDiv.style.color = "#FFD700";
+        }
+        function analyzeFrame() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 160;
+            canvas.height = 120;
+            try {
+                ctx.drawImage(camera, 0, 0, 160, 120);
+                const imageData = ctx.getImageData(0, 0, 160, 120);
+                const data = imageData.data;
+                let goldPixels = 0;
+                let totalPixels = data.length / 4;
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+                    if (r > 180 && g > 140 && b < 80 && (r - b) > 80) {
+                        goldPixels++;
+                    }
+                }
+                const goldPercentage = (goldPixels / totalPixels) * 100;
+                if (goldPercentage > currentSensitivity) {
+                    detectGold();
+                } else {
+                    statusDiv.textContent = "🔍 સ્કેન કરી રહ્યા છીએ...";
+                    statusDiv.style.color = "#00FF00";
+                }
+                sensitivityDiv.textContent = `સંવેદનશીલતા: ${currentSensitivity} | શોધ: ${(goldPercentage).toFixed(1)}%`;
+            } catch (e) {
+                console.log("Frame analysis error:", e);
+            }
+        }
+        function detectGold() {
+            const now = Date.now();
+            if (now - lastAlertTime < 500) return;
+            lastAlertTime = now;
+            goldDetectionCount++;
+            statusDiv.textContent = "🌟 સોના મળ્યા! 🌟";
+            statusDiv.style.color = "#FFD700";
+            statusDiv.classList.add('alert');
+            setTimeout(() => statusDiv.classList.remove('alert'), 500);
+            goldCountDiv.textContent = `શોધ: ${goldDetectionCount}`;
+            playSound();
+            if (navigator.vibrate) {
+                navigator.vibrate([50, 30, 50, 30, 100]);
+            }
+        }
+        function playSound() {
+            const notes = [1200, 1400, 1200];
+            let noteIndex = 0;
+            function playNote() {
+                if (noteIndex >= notes.length) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.frequency.value = notes[noteIndex];
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.1);
+                noteIndex++;
+                setTimeout(playNote, 120);
+            }
+            playNote();
+        }
+        function updateSensitivity() {
+            currentSensitivity = parseInt(sensitivitySlider.value);
+            document.getElementById('sensitivity-value').textContent = currentSensitivity;
+        }
+        window.addEventListener('load', () => {
+            statusDiv.textContent = "▶️ શરૂ કરવા માટે બટન દબાવો";
+        });
+    </script>
+</body>
+</html>
