@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .bg{fill:#0b5ed7}
+      .text{fill:#ffffff;font-family: 'Poppins', Arial, sans-serif;font-weight:700}
+      .tag{fill:#ffffff;font-family: 'Noto Sans Gujarati', Arial, sans-serif;font-weight:600}
+    </style>
+  </defs>
+  <circle class="bg" cx="300" cy="300" r="300" />
+  <text x="300" y="300" text-anchor="middle" alignment-baseline="central" font-size="140" class="text">JKCORP</text>
+  <text x="300" y="390" text-anchor="middle" font-size="34" class="tag">INNOVATING FOR TOMORROW</text>
+</svg>
