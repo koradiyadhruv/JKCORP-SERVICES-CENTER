@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
   <title>JKCORP Service Center | Government Documents & Digital Services | Amreli</title>
-  <meta name="description" content="JKCORP Service Center — સારંગપુર, અમરેલી: આધાર, પાન, મતદાર ID, ડ્રાઇવિંગ લાઇસન્સ, પાસપોર્ટ, ખેડૂત યોજનાઓ અને શિષ્યવૃત્તિ માટે ઝડપી અને પારદર્શક સહાય. રિમોટ eKYC અને ઓનલાઇન ડોક્યુમેન્ટ પ્રોસેસિંગ ઉપલબ્ધ.">
-  <meta name="keywords" content="JKCORP, સરકારી સેવા, આધાર, પાન, જમ��ન, શિષ્યવૃત્તિ, ખેડૂત, અમરેલી">
+  <meta name="description" content="JKCORP Service Center — સારંગપુર, અમરેલી: આધાર, પાન, મતદાર ID, ડ્રાઇવિંગ લાઈસન્સ, પાસપોર્ટ, ખેડૂત યોજનાઓ અને શિષ્યવૃત્તિ માટે ઝડપી અને પારદર્શક સહાય. રિમોટ eKYC અને ઓનલાઇન ડોક્યુમેન્ટ પ્રોસેસિંગ ઉપલબ્ધ.">
+  <meta name="keywords" content="JKCORP, સરકારી સેવા, આધાર, પાન, જમીન, શિષ્યવૃત્તિ, ખેડૂત, અમરેલી">
   <meta name="author" content="JKCORP SERVICE CENTER">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1565c0">
@@ -27,7 +27,7 @@
   <meta property="og:description" content="JKCORP Service Center provides government document assistance, farmer schemes, scholarships in Sarangpur, Amreli, Gujarat.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jkcorpservicecenter.in">
-  <meta property="og:image" content="https://jkcorpservicecenter.in/og-image.jpg">
+  <meta property="og:image" content="/assets/images/logo.svg">
   <meta property="og:locale" content="gu_IN">
 
   <!-- Twitter -->
@@ -41,8 +41,8 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "JKCORP SERVICE CENTER",
-    "image": "https://jkcorpservicecenter.in/logo.png",
-    "description": "JKCORP Service Center provides government document assistance, farmer schemes, scholarships in Sarangpur, Amreli, Gujarat.",
+    "image": "https://jkcorpservicecenter.in/assets/images/logo.svg",
+    "description": "JKCORP Service Center provides government document assistance, farmer schemes and scholarship help in Sarangpur, Amreli, Gujarat.",
     "telephone": "+91-6354616851",
     "email": "kordiyadhruv@gmail.com",
     "url": "https://jkcorpservicecenter.in",
@@ -59,11 +59,11 @@
       "latitude": "22.0854",
       "longitude": "72.1535"
     },
-    "areaServed": ["સારંગપુર", "કુંકાવાવ", "વડિયા", "અમરેલી", "ગુજરાત"],
+    "areaServed": ["સારંગપુર","કુંકાવાવ","વડિયા","અમરેલી","ગુજરાત"],
     "priceRange": "₹100-₹600",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
       "opens": "10:00",
       "closes": "22:00"
     },
@@ -80,24 +80,20 @@
   </script>
 
   <!-- Icons & Fav -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%231565c0'>J</text></svg>">
+  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
 
-  <!-- Font Awesome (kept for now) -->
+  <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
-
-  <!-- Placeholders and analytics will be loaded after consent -->
 </head>
 <body>
   <a href="#main-content" class="skip-link">મુખ્ય સામગ્રી પર જાઓ</a>
 
-  <!-- Cookie consent banner (simple) -->
+  <!-- Cookie consent banner -->
   <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" style="display:none;">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;">
-      <div style="flex:1;">
-        This site uses cookies for analytics and to improve your experience. Click "Accept" to allow Google Analytics (anonymous).
-      </div>
+      <div style="flex:1;">This site uses cookies for analytics and to improve your experience. Click "Accept" to allow Google Analytics (anonymous).</div>
       <div style="white-space:nowrap;">
         <button id="accept-cookies" class="btn" aria-label="Accept analytics">Accept</button>
         <button id="reject-cookies" class="btn" style="background:#fff;color:var(--main-blue);border:2px solid var(--main-blue);" aria-label="Reject analytics">Reject</button>
@@ -106,12 +102,14 @@
   </div>
 
   <header role="banner" id="site-header">
-    <div class="container">
-      <div class="location-badge" id="location-text">
-        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> સારંગપુર, કુંકાવાવ-વડિયા, અમરેલી, ગુજરાત • 365460
+    <div class="container header-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="/assets/images/logo.svg" alt="JKCORP Service Center logo" class="site-logo" style="height:56px;">
+        <div class="brand">
+          <h1>JKCORP SERVICE CENTER</h1>
+          <p style="margin:0;font-size:0.85rem;color:var(--muted);">Sarangpur, Amreli • Government document & digital services</p>
+        </div>
       </div>
-
-      <h1>JKCORP SERVICE CENTER</h1>
 
       <button class="hamburger" aria-label="મેનુ ખોલો" aria-controls="mainnav" aria-expanded="false" id="hamburger">
         <span></span><span></span><span></span>
@@ -122,11 +120,11 @@
         <a href="#about">અમારા વિશે</a>
         <a href="#locations">સ્થાનો</a>
         <a href="#services">સેવાઓ</a>
-        <a href="#student">વિદ્યDialogs</a>
+        <a href="#student">વિદ્યાર્થી</a>
         <a href="#farmer">ખેડૂત</a>
         <a href="#trust">વિશ્વસનીયતા</a>
         <a href="#faqs">પ્રશ્નો</a>
-        <a href="#contact">સંપર્ક</a>
+        <a href="#contact" class="cta">સંપર્ક</a>
       </nav>
 
       <div class="menu-overlay" id="menu-overlay" tabindex="-1"></div>
@@ -136,25 +134,33 @@
   <main id="main-content">
     <!-- HERO -->
     <section id="home" class="hero container" aria-label="હોમ વિભાગ">
-      <h2 class="hero-maintext">તમારી જાહેર સેવાઓ માટે વિશ્વસનીય ભાગીદાર</h2>
-      <p class="hero-subtext">JKCORP SERVICE CENTER — સર્વ પ્રકારની સરકારી દસ્તાવેજી કામગીરી, યોજનાઓ તથા શિષ્યવૃત્તિ માટે ઝડપી, પારદર્શક અને મદદરૂપ સેવા. રિમોટ eKYC અને લોકલ મદદ બંને ઉપલબ્ધ.</p>
-      <div class="hero-location" aria-hidden="false">
-        <i class="fas fa-phone" aria-hidden="true"></i>
-        <a href="tel:+916354616851" rel="noopener noreferrer">+91-6354616851</a> | <a href="tel:+917990850635" rel="noopener noreferrer">+91-7990850635</a>
-      </div>
-      <div style="margin-top:12px;">
-        <a href="#services" class="btn" aria-label="See services">
-          <i class="fas fa-briefcase" aria-hidden="true"></i> સેવાઓ જુઓ
-        </a>
-        <a class="whatsapp-btn" href="https://wa.me/916354616851?text=Hi%2C%20I%20want%20to%20know%20more%20about%20JKCORP%20SERVICE%20CENTER" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp સંપર્ક">
-          <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp સંપર્ક
-        </a>
+      <div class="hero-grid">
+        <div>
+          <h2 class="hero-maintext">તમારી જાહેર સેવાઓ માટે વિશ્વસનીય ભાગીદાર</h2>
+          <p class="hero-subtext">JKCORP SERVICE CENTER — આધાર, પાન, મતદાર ID, ડ્રાઇવિંગ લાઈસન્સ, પાસપોર્ટ, જમીન દસ્તાવેજ અને ખેડૂત/શિષ્યવૃત્તિ યોજનાઓ માટે પ્રોફેશનલ સહાય. અનલાઇન અને રિમોટ eKYC બંને ઉપલબ્ધ છે.</p>
+
+          <div class="hero-cta">
+            <a href="#services" class="btn primary" aria-label="See services"><i class="fas fa-briefcase" aria-hidden="true"></i> સેવાઓ જુઓ</a>
+            <a class="whatsapp-btn" href="https://wa.me/916354616851?text=Hello%20JKCORP%20Service%20Center" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp સંપર્ક"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp સંપર્ક</a>
+          </div>
+
+          <div class="trust-badges">
+            <div class="badge"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1+ વર્ષ અનુભવ</div>
+            <div class="badge"><i class="fas fa-check-circle" aria-hidden="true"></i> પારદર્શી ચાર્જ</div>
+            <div class="badge"><i class="fas fa-lock" aria-hidden="true"></i> સુરક્ષિત રિમોટ eKYC</div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true" style="text-align:center;">
+          <img src="/assets/images/logo.svg" alt="JKCORP" style="max-width:220px;">
+          <p style="color:#fff;opacity:0.95;margin-top:12px;">સુરક્ષિત અને વિશ્વસનીય સેવાઓ — તે જ દિવસે આરંભ કરી શકાય છે.</p>
+        </div>
       </div>
     </section>
 
     <!-- LOCATIONS -->
-    <section id="locations" class="container locations-section" aria-labelledby="locations-title">
-      <h2 id="locations-title" class="section-title"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> અમારી સેવાઓ આ વિસ્તારોમાં उपलब्ध છે</h2>
+    <section id="locations" class="section container locations-section" aria-labelledby="locations-title">
+      <h2 id="locations-title" class="section-title"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> અમારી સેવાઓ આ વિસ્તારમા ઉપલબ્ધ છે</h2>
       <div class="locations-grid" role="list">
         <div class="location-card" role="listitem"><i class="fas fa-home" aria-hidden="true"></i><p>સારંગપુર</p></div>
         <div class="location-card" role="listitem"><i class="fas fa-city" aria-hidden="true"></i><p>કુંકાવાવ</p></div>
@@ -163,11 +169,11 @@
         <div class="location-card" role="listitem"><i class="fas fa-flag" aria-hidden="true"></i><p>ગુજરાત</p></div>
         <div class="location-card" role="listitem"><i class="fas fa-globe" aria-hidden="true"></i><p>ભારત</p></div>
       </div>
-      <p style="text-align:center; margin-top:16px; color:#666; font-size:0.9rem;">અમે સારંગપુર, કુંકાવાવ, વડિયા અને અમરેલી જિલ્લાના આસપાસની સેવાઓ પૂરી પાડીએ છીએ. વિશેષ વિસ્તારમાં સેવા માટે કૃપા કરી સંપર્ક કરો.</p>
+      <p style="text-align:center; margin-top:16px; color:#666; font-size:0.9rem;">અમે સ્થાનિક અને નજીકના વિસ્તારોમાં સેવા આપી રહ્યા છીએ. વિશેષ વિસ્તારો માટે સંપર્ક કરો.</p>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="container services-section" aria-labelledby="services-title">
+    <section id="services" class="section container services-section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title"><i class="fas fa-briefcase" aria-hidden="true"></i> અમારી સેવાઓ</h2>
       <div class="services-grid" role="list">
         <div class="service-card" role="listitem">
@@ -184,7 +190,7 @@
         </div>
         <div class="service-card">
           <div class="service-icon" aria-hidden="true"><i class="fas fa-car"></i></div>
-          <p class="service-name">ડ્રાઇવિંગ લાઇસન્સ</p>
+          <p class="service-name">ડ્રાઇવિંગ લાઈસન્સ</p>
         </div>
         <div class="service-card">
           <div class="service-icon" aria-hidden="true"><i class="fas fa-passport"></i></div>
@@ -218,7 +224,7 @@
     </section>
 
     <!-- TRUST -->
-    <section id="trust" class="container">
+    <section id="trust" class="section container">
       <div class="trust-bar" role="list" aria-label="Trust signals">
         <div class="trust-item" role="listitem"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1+ Years Experience</div>
         <div class="trust-item" role="listitem"><i class="fas fa-th-large" aria-hidden="true"></i> 10+ Services</div>
@@ -228,13 +234,11 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="container card" aria-labelledby="about-title">
+    <section id="about" class="section container card" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title"><i class="fas fa-info-circle" aria-hidden="true"></i> About JKCORP Service Center</h2>
       <div class="about-grid">
         <div>
-          <p style="font-size:1rem; color:#234; line-height:1.7;">
-            We help rural families navigate government documentation and digital services. JKCORP Service Center assists with Aadhaar, PAN, voter ID, driving license, passport, farmer schemes and scholarship applications. We provide remote guidance and local assistance to complete applications quickly and transparently.
-          </p>
+          <p style="font-size:1rem; color:#234; line-height:1.7;">We help rural families navigate government documentation and digital services. JKCORP Service Center assists with Aadhaar, PAN, voter ID, driving license, passport, farmer schemes and scholarship applications. We provide remote guidance and local assistance to complete applications quickly and transparently.</p>
           <p style="margin-top:12px; font-weight:700;">Location: Sarangpur, Amreli District, Gujarat • 365460</p>
         </div>
 
@@ -252,51 +256,50 @@
               <div style="font-size:0.9rem; color:#666;">Operations</div>
             </div>
           </div>
-          <p style="margin-top:12px; font-size:0.9rem; color:#666;"></p>
         </aside>
       </div>
     </section>
 
     <!-- HOW -->
-    <section id="how" class="container card" aria-labelledby="how-title">
+    <section id="how" class="section container card" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title"><i class="fas fa-cogs" aria-hidden="true"></i> How It Works</h2>
       <div class="steps" role="list">
         <div class="step" role="listitem">
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
-          <h3 style="color:var(--main-blue); margin:8px 0;">Contact Us</h3>
+          <h3 style="color:var(--primary); margin:8px 0;">Contact Us</h3>
           <p>WhatsApp or call to start. Share details and documents securely.</p>
         </div>
         <div class="step">
           <i class="fas fa-shield-alt" aria-hidden="true"></i>
-          <h3 style="color:var(--main-blue); margin:8px 0;">Remote eKYC</h3>
+          <h3 style="color:var(--primary); margin:8px 0;">Remote eKYC</h3>
           <p>Remote eKYC Processing and Aadhaar-linked Digital Verification — no physical visit needed when possible.</p>
         </div>
         <div class="step">
           <i class="fas fa-check" aria-hidden="true"></i>
-          <h3 style="color:var(--main-blue); margin:8px 0;">Receive Service</h3>
+          <h3 style="color:var(--primary); margin:8px 0;">Receive Service</h3>
           <p>Documents and confirmations provided; we assist through follow-ups until completion.</p>
         </div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimonials" class="container card" aria-labelledby="testimonials-title">
+    <section id="testimonials" class="section container card" aria-labelledby="testimonials-title">
       <h2 id="testimonials-title" class="section-title"><i class="fas fa-star" aria-hidden="true"></i> ગ્રાહકોનો પ્રતિસાદ</h2>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <div class="testimonial-text">"મારે PM-KISAN માટે અરજી કરવી હતી. JKCORP એ 3 દિવસમાં અરજી પૂર્ણ કરી અને તમામ જરૂરી સહાય આપી." </div>
+          <div class="testimonial-text">"મારો PM-KISAN અરજી પ્રક્રિયા ઝડપથી પૂર્ણ કરી. ખૂબ સહાય મળી."</div>
           <div class="testimonial-author">- હર્ષ અરોરા, સારંગપુર</div>
           <div class="rating">⭐⭐⭐⭐⭐</div>
         </div>
 
         <div class="testimonial-card">
-          <div class="testimonial-text">"શિષ્યવૃત્તિ પ્રક્રિયામાં JKCORP ખૂબ સહાયક રહી. દસ્તાવેજો સમયસર પુરા થઇ ગયા."</div>
+          <div class="testimonial-text">"શિષ્યવૃત્તિ માટે માર્ગદર્શનમાં JKCORP ખૂબ ઉપયોગી રહ્યા."</div>
           <div class="testimonial-author">- મીનાબેન, કુંકાવાવ</div>
           <div class="rating">⭐⭐⭐⭐⭐</div>
         </div>
 
         <div class="testimonial-card">
-          <div class="testimonial-text">"જમીન દસ્તાવેજ માટે સહાય માટેર્સ. પ્રક્રિયા પારદર્શક અને ઝડપી હતી."</div>
+          <div class="testimonial-text">"જમીન દસ્તાવેજ માટેની સહાય સરળ અને પારદર્શક હતી."</div>
           <div class="testimonial-author">- વાસુદેવ, અમરેલી</div>
           <div class="rating">⭐⭐⭐⭐⭐</div>
         </div>
@@ -304,7 +307,7 @@
     </section>
 
     <!-- PRICING -->
-    <section id="pricing" class="container card" aria-labelledby="pricing-title">
+    <section id="pricing" class="section container card" aria-labelledby="pricing-title">
       <h2 id="pricing-title" class="section-title"><i class="fas fa-wallet" aria-hidden="true"></i> Pricing</h2>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -327,7 +330,7 @@
     </section>
 
     <!-- FAQ (Accordion) -->
-    <section id="faqs" class="container card" aria-labelledby="faq-title">
+    <section id="faqs" class="section container card" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title"><i class="fas fa-question-circle" aria-hidden="true"></i> Frequently Asked Questions (FAQs)</h2>
 
       <div class="accordion" data-qa="faq1">
@@ -335,9 +338,7 @@
           <span>Q1: તમે કયા વિસ્તારમાં સેવા આપો છો? / Where do you serve?</span>
           <span class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
         </button>
-        <div class="accordion-body">
-          સારંગપુર, કુંકાવાવ, વડિયા, અમરેલી જિલ્લો અને આજુબાજુના વિસ્તારોમાં સેવા પુરી પાડવામાં આવે છે.
-        </div>
+        <div class="accordion-body">સારંગપુર, કુંકાવાવ, વડિયા, અમરેલી જિલ્લો અને આજુબાજુના વિસ્તારમાં સેવા પૂરી પાડવામાં આવે છે.</div>
       </div>
 
       <div class="accordion" data-qa="faq2">
@@ -345,9 +346,7 @@
           <span>Q2: રિમોટ પ્રોસેસ કેવી રીતે કામ કરે છે? / How does remote processing work?</span>
           <span class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
         </button>
-        <div class="accordion-body">
-          તમે દસ્તાવેજ અને વિગતો શેર કરો; અમારી ટીમ રીમોટ eKYC અને ડિજિટલ ચકાસણી દ્વારા પ્રક્રિયા પૂર્ણ કરે છે.
-        </div>
+        <div class="accordion-body">તમે દસ્તાવેજ અને વિગતો શેર કરશો; અમારી ટીમ રિમોટ eKYC અને ડિજિટલ ચકાસણી દ્વારા પ્રક્રિયા પૂરાં કરશે.</div>
       </div>
 
       <div class="accordion" data-qa="faq3">
@@ -355,9 +354,7 @@
           <span>Q3: સેવા માટે ચાર્જ કેટલો છે? / What are the service charges?</span>
           <span class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
         </button>
-        <div class="accordion-body">
-          ચાર્જ સર્વિસ પ્રમાણે ફરકશે. સરળ સેવાઓ માટે ₹100-₹200, મધ્યમ સેવાઓ માટે ₹200-₹400 અને જટિલ સેવાઓ માટે ₹400-₹600 અથવા વધુ હોઈ શકે છે.
-        </div>
+        <div class="accordion-body">ચાર્જ સર્વિસ પ્રમાણે ફરકશે. સરળ સેવાઓ માટે ₹100-₹200, મધ્યમ માટે ₹200-₹400, જટિલ માટે ₹400 અને વધુ હોઈ શકે છે.</div>
       </div>
 
       <div class="accordion" data-qa="faq4">
@@ -365,9 +362,7 @@
           <span>Q4: કેટલો સમય લાગે છે? / How long does it take?</span>
           <span class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
         </button>
-        <div class="accordion-body">
-          સામાન્ય રીતે 2-8 દિવસ. passport અથવા કેટલીક બાહ્ય પ્રક્રિયાઓ માટે વધુ સમય લાગશે.
-        </div>
+        <div class="accordion-body">સામાન્ય રીતે 2-8 દિવસ. passport અને કેટલીક બાહ્ય પ્રક્રિયાઓ માટે વધુ સમય લાગી શકે છે.</div>
       </div>
 
       <div class="accordion" data-qa="faq5">
@@ -375,18 +370,16 @@
           <span>Q5: શું તમે સ્કોલરશિપ માટે મદદ કરો છો? / Do you help with scholarships?</span>
           <span class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
         </button>
-        <div class="accordion-body">
-          હા, અમે રાષ્ટ્રીય અને રાજ્ય સ્તરના શિષ્યવૃત્તિ માટે માર્ગદર્શન અને દસ્તાવેજી સહાય પ્રદાન કરીએ છીએ.
-        </div>
+        <div class="accordion-body">હા, અમે રાષ્���્રીય અને રાજ્ય સ્તરની શિષ્યવૃત્તિ માટે માર્ગદર્શન અને દસ્તાવેજી સહાય પ્રદાન કરીએ છીએ.</div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="container card" aria-labelledby="contact-title">
+    <section id="contact" class="section container card" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section-title"><i class="fas fa-address-book" aria-hidden="true"></i> Contact</h2>
       <div class="contact-grid">
         <div class="contact-card">
-          <p style="font-weight:700; color:var(--main-blue);">Reach out</p>
+          <p style="font-weight:700; color:var(--primary);">Reach out</p>
           <p><strong>WhatsApp:</strong> <a href="https://wa.me/916354616851" target="_blank" rel="noopener noreferrer">+91-6354616851</a></p>
           <p><strong>Phone:</strong> <a href="tel:+916354616851">+91-6354616851</a></p>
           <p><strong>Email:</strong> <a href="mailto:kordiyadhruv@gmail.com">kordiyadhruv@gmail.com</a></p>
@@ -394,9 +387,7 @@
           <p><strong>Hours:</strong> Mon - Sat, 10:00 AM - 10:00 PM</p>
 
           <div style="margin-top:12px;">
-            <a class="whatsapp-btn" href="https://wa.me/916354616851?text=Hi%2C%20I%20want%20assistance%20with%20a%20service" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Us">
-              <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
-            </a>
+            <a class="whatsapp-btn" href="https://wa.me/916354616851?text=Hi%2C%20I%20want%20assistance%20with%20a%20service" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Us"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
             <a href="tel:+916354616851" class="btn" style="background:var(--accent); border-color:var(--accent);">Call Now</a>
           </div>
 
@@ -429,11 +420,9 @@
         </div>
 
         <div class="contact-card" aria-hidden="false">
-          <p style="font-weight:700; color:var(--main-blue);">Location Map</p>
+          <p style="font-weight:700; color:var(--primary);">Location Map</p>
 
-          <iframe
-            src="https://www.google.com/maps?q=22.0854,72.1535&z=14&output=embed"
-            width="100%" height="220" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="JKCORP location map"></iframe>
+          <iframe src="https://www.google.com/maps?q=22.0854,72.1535&z=14&output=embed" width="100%" height="220" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="JKCORP location map"></iframe>
         </div>
       </div>
     </section>
@@ -466,7 +455,6 @@
         overlay.classList.toggle('show', open);
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
         if (open) {
-          // focus first link for accessibility
           const firstLink = nav.querySelector('a');
           if (firstLink) firstLink.focus();
         }
@@ -475,14 +463,12 @@
       if (hamburger) hamburger.addEventListener('click', toggleMenu);
       if (overlay) overlay.addEventListener('click', toggleMenu);
 
-      // Close menu on link click
       if (nav) {
         nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
           if (nav.classList.contains('open')) toggleMenu();
         }));
       }
 
-      // Close menu with Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && nav && nav.classList.contains('open')) {
           toggleMenu();
@@ -531,6 +517,20 @@
       });
     })();
 
+    // Contact form validation (simple)
+    (function(){
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function(e){
+        const phone = document.getElementById('phone');
+        if (phone && !/^[0-9\+\-\s]{7,15}$/.test(phone.value.trim())){
+          e.preventDefault();
+          alert('કૃપા કરીને માન્ય ફોન નંબર દાખલ કરો');
+          phone.focus();
+        }
+      });
+    })();
+
     // Cookie consent: show banner and load analytics on accept
     (function(){
       const consent = localStorage.getItem('jkcorp_consent');
@@ -538,61 +538,19 @@
       const acceptBtn = document.getElementById('accept-cookies');
       const rejectBtn = document.getElementById('reject-cookies');
 
-      function showBanner() {
-        if (consentBox) consentBox.style.display = 'block';
-      }
-      function hideBanner() {
-        if (consentBox) consentBox.style.display = 'none';
-      }
+      function showBanner() { if (consentBox) consentBox.style.display = 'block'; }
+      function hideBanner() { if (consentBox) consentBox.style.display = 'none'; }
 
-      if (consent === 'yes') {
-        // load analytics immediately
-        loadAnalytics();
-      } else if (consent === 'no') {
-        // do not load analytics
-      } else {
-        // ask
-        showBanner();
-      }
+      if (consent === 'yes') { loadAnalytics(); } else if (consent === 'no') { } else { showBanner(); }
 
-      if (acceptBtn) acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('jkcorp_consent', 'yes');
-        hideBanner();
-        loadAnalytics();
-      });
-      if (rejectBtn) rejectBtn.addEventListener('click', () => {
-        localStorage.setItem('jkcorp_consent', 'no');
-        hideBanner();
-      });
+      if (acceptBtn) acceptBtn.addEventListener('click', () => { localStorage.setItem('jkcorp_consent','yes'); hideBanner(); loadAnalytics(); });
+      if (rejectBtn) rejectBtn.addEventListener('click', () => { localStorage.setItem('jkcorp_consent','no'); hideBanner(); });
 
-      function loadAnalytics(){
-        // GA4 placeholder - replace G-XXXXXXX with your ID
-        if (window.__ga_loaded) return;
-        window.__ga_loaded = true;
-        const gtagScript = document.createElement('script');
-        gtagScript.async = true;
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
-        document.head.appendChild(gtagScript);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX', { 'anonymize_ip': true });
-      }
+      function loadAnalytics(){ if (window.__ga_loaded) return; window.__ga_loaded = true; const gtagScript = document.createElement('script'); gtagScript.async = true; gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX'; document.head.appendChild(gtagScript); window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} window.gtag=gtag; gtag('js', new Date()); gtag('config', 'G-XXXXXXX', { 'anonymize_ip': true }); }
     })();
 
     // Service Worker registration (for PWA)
-    (function(){
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js').then(function(reg){
-            // console.log('ServiceWorker registered', reg);
-          }).catch(function(err){
-            // console.warn('SW register failed', err);
-          });
-        });
-      }
-    })();
+    (function(){ if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js').catch(function(err){/* SW register failed */}); }); } })();
   </script>
 </body>
 </html>
