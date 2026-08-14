@@ -48,7 +48,7 @@
     "url": "https://jkcorpservicecenter.in",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "સારングપુર",
+      "streetAddress": "સારંગપુર",
       "addressLocality": "સારંગપુર",
       "addressRegion": "અમરેલી",
       "postalCode": "365460",
@@ -108,7 +108,7 @@
   <header role="banner" id="site-header">
     <div class="container">
       <div class="location-badge" id="location-text">
-        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> સારંગ પુર, કુંકાવાવ-વડિયા, અમરેલી, ગુજરાત
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> સારંગપુર, કુંકાવાવ-વડિયા, અમરેલી, ગુજરાત • 365460
       </div>
 
       <h1>JKCORP SERVICE CENTER</h1>
@@ -234,7 +234,7 @@
           <p style="font-size:1rem; color:#234; line-height:1.7;">
             We help rural families navigate government documentation and digital services. JKCORP Service Center assists with Aadhaar, PAN, voter ID, driving license, passport, farmer schemes and scholarships. Our focus is fast, transparent and affordable service for Sarangpur & surrounding areas.
           </p>
-          <p style="margin-top:12px; font-weight:700;">Location: Sarangpur, Amreli District, Gujarat</p>
+          <p style="margin-top:12px; font-weight:700;">Location: Sarangpur, Amreli District, Gujarat • 365460</p>
         </div>
 
         <aside>
@@ -284,7 +284,7 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-text">"મારે PM-KISAN માટે અરજી કરવી હતી. JKCORP એ 3 દિવસમાં અરજી પૂર્ણ કરી." </div>
-          <div class="testimonial-author">- હর্ষ અરોરા, સારંગપુર</div>
+          <div class="testimonial-author">- હર્ષ અરોરા, સારંગપુર</div>
           <div class="rating">⭐⭐⭐⭐⭐</div>
         </div>
 
@@ -389,7 +389,7 @@
           <p><strong>WhatsApp:</strong> <a href="https://wa.me/916354616851" target="_blank" rel="noopener noreferrer">+91-6354616851</a></p>
           <p><strong>Phone:</strong> <a href="tel:+916354616851">+91-6354616851</a></p>
           <p><strong>Email:</strong> <a href="mailto:kordiyadhruv@gmail.com">kordiyadhruv@gmail.com</a></p>
-          <p><strong>Address:</strong> Sarangpur, Amreli District, Gujarat</p>
+          <p><strong>Address:</strong> Sarangpur, Amreli District, Gujarat • 365460</p>
           <p><strong>Hours:</strong> Mon - Sat, 10:00 AM - 10:00 PM</p>
 
           <div style="margin-top:12px;">
@@ -414,7 +414,7 @@
             <select id="service" name="service" style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6f6ff;border-radius:6px;">
               <option>આધાર કાર્ડ</option>
               <option>પાન કાર્ડ</option>
-              <option>પాస్‍પોર્ટ</option>
+              <option>પಾಸ್‍પોર્ટ</option>
               <option>શિષ્યવૃત્તિ</option>
             </select>
 
@@ -463,6 +463,11 @@
         hamburger.classList.toggle('active', open);
         overlay.classList.toggle('show', open);
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+          // focus first link for accessibility
+          const firstLink = nav.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
       }
 
       hamburger.addEventListener('click', toggleMenu);
@@ -472,6 +477,13 @@
       nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
         if (nav.classList.contains('open')) toggleMenu();
       }));
+
+      // Close menu with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
     })();
 
     // Accordion

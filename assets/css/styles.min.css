@@ -88,7 +88,8 @@ nav a {
   background: var(--white);
   border: 2px solid var(--main-blue);
   text-decoration: none;
-  padding: 9px 20px;
+  padding: 12px 20px;
+  min-height:44px;
   border-radius: 25px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -131,7 +132,7 @@ nav a:hover, nav a:focus {
 @media (max-width: 768px) {
   nav { position: fixed; flex-direction: column; top: 0; left: -280px; width: 260px; height: 100vh; background: var(--gradient); padding-top: 80px; gap: 8px; z-index: 110; transition: left .3s; align-items:center; }
   nav.open { left: 0; }
-  nav a { width: 90%; margin: 4px 0; }
+  nav a { width: 92%; margin: 6px 0; padding: 14px 18px; }
   .hamburger { display:block; }
   header h1 { font-size: 1.4rem; }
 }
@@ -141,7 +142,7 @@ nav a:hover, nav a:focus {
 .hero-maintext { font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.8px; }
 .hero-subtext { font-size: 1.05rem; margin-bottom: 18px; font-weight:600; line-height:1.6; opacity:.95; }
 
-.btn { background: var(--main-blue); color: #fff; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: 700; border: 2px solid var(--main-blue); cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; display:inline-flex; align-items:center; gap:8px; }
+.btn { background: var(--main-blue); color: #fff; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: 700; border: 2px solid var(--main-blue); cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; display:inline-flex; align-items:center; gap:8px; min-height:44px; }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(21,101,192,0.15); background: var(--accent); color:#00364d; }
 
 .whatsapp-btn { display:inline-flex; align-items:center; background:#25D366; color:#fff; padding:12px 26px; border-radius:25px; font-weight:700; text-decoration:none; margin:8px 6px; }
