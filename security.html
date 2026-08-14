@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security - JKCORP Service Center</title>
+  <meta name="description" content="Security practices and recommended headers for JKCORP Service Center.">
+  <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+<body>
+  <main class="container" style="padding:28px;">
+    <h1>Security & Hosting Recommendations</h1>
+    <p>This page lists recommended server-side security headers and practices to harden your website:</p>
+    <h2>Recommended HTTP headers (example nginx)</h2>
+    <pre style="background:#f7fbff;padding:12px;border-radius:6px;border:1px solid #eef6ff;">add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+add_header Referrer-Policy "no-referrer-when-downgrade" always;
+add_header X-Frame-Options "DENY" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header Permissions-Policy "geolocation=(), microphone=()" always;
+add_header Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google.com;" always;</pre>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Content-Security-Policy is powerful; start with report-only mode while monitoring.</li>
+      <li>Enable HTTPS and HSTS via your hosting provider or reverse proxy.</li>
+      <li>Use gzip or Brotli compression for assets and a CDN for static content.</li>
+    </ul>
+
+    <p style="margin-top:22px;"><a href="/">Back to home</a></p>
+  </main>
+</body>
+</html>

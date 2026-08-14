@@ -1,0 +1,5 @@
+Contact: mailto:kordiyadhruv@gmail.com
+Encryption: https://jkcorpservicecenter.in/pgp-key.txt
+Acknowledgements: https://jkcorpservicecenter.in/security-acknowledgements.html
+Preferred-Languages: en, gu
+Expires: 2027-01-01T00:00:00Z
