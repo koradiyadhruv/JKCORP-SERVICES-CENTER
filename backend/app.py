@@ -1,93 +1,71 @@
-"""Small production-oriented starter API for JKCORP inquiries.
-
-Run locally from the repository root:
-  pip install -r backend/requirements.txt
-  flask --app backend.app run --debug
-
-GitHub Pages cannot execute this Python service; deploy it separately.
-"""
-
 import os
+import secrets
 import sqlite3
-from pathlib import Path
 from datetime import datetime, timezone
-
-from dotenv import load_dotenv
+from pathlib import Path
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from dotenv import load_dotenv
 
 load_dotenv()
-
-BASE_DIR = Path(__file__).resolve().parent
-DATABASE = os.getenv("DATABASE_PATH", str(BASE_DIR / "jkcorp.sqlite3"))
 app = Flask(__name__)
-allowed_origins = [origin.strip() for origin in os.getenv("CORS_ORIGINS", "http://localhost:5500").split(",") if origin.strip()]
-CORS(app, origins=allowed_origins)
+DB_PATH = os.getenv('DATABASE_PATH', str(Path(__file__).with_name('jkcorp.sqlite3')))
+origins = [x.strip() for x in os.getenv('CORS_ORIGINS', 'http://localhost:5500').split(',') if x.strip()]
+CORS(app, origins=origins)
 
 
-def connection():
-    db = sqlite3.connect(DATABASE)
-    db.row_factory = sqlite3.Row
-    return db
+def db():
+    connection = sqlite3.connect(DB_PATH)
+    connection.row_factory = sqlite3.Row
+    return connection
 
 
-def initialise_database():
-    with connection() as db:
-        db.execute(
-            """CREATE TABLE IF NOT EXISTS inquiries (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                phone TEXT NOT NULL,
-                service TEXT NOT NULL,
-                message TEXT NOT NULL DEFAULT '',
-                created_at TEXT NOT NULL
-            )"""
-        )
-        db.commit()
+def initialise():
+    with db() as connection:
+        connection.execute('''CREATE TABLE IF NOT EXISTS inquiries (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL, phone TEXT NOT NULL, service TEXT NOT NULL,
+            message TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL)''')
+        connection.commit()
 
 
-initialise_database()
+initialise()
 
 
-@app.get("/api/health")
+@app.get('/api/health')
 def health():
-    return jsonify({"ok": True, "service": "jkcorp-api"})
+    return jsonify({'ok': True, 'service': 'jkcorp-api'})
 
 
-@app.post("/api/inquiries")
+@app.post('/api/inquiries')
 def create_inquiry():
     payload = request.get_json(silent=True) or {}
-    name = str(payload.get("name", "")).strip()
-    phone = str(payload.get("phone", "")).strip()
-    service = str(payload.get("service", "")).strip()
-    message = str(payload.get("message", "")).strip()
-
+    name = str(payload.get('name', '')).strip()
+    phone = str(payload.get('phone', '')).strip()
+    service = str(payload.get('service', '')).strip()
+    message = str(payload.get('message', '')).strip()
     if not name or not phone or not service:
-        return jsonify({"ok": False, "error": "name, phone and service are required"}), 400
+        return jsonify({'ok': False, 'error': 'name, phone and service are required'}), 400
     if len(name) > 120 or len(phone) > 30 or len(service) > 120 or len(message) > 2000:
-        return jsonify({"ok": False, "error": "one or more fields are too long"}), 400
-
-    created_at = datetime.now(timezone.utc).isoformat()
-    with connection() as db:
-        cursor = db.execute(
-            "INSERT INTO inquiries (name, phone, service, message, created_at) VALUES (?, ?, ?, ?, ?)",
-            (name, phone, service, message, created_at),
-        )
-        db.commit()
-        inquiry_id = cursor.lastrowid
-
-    return jsonify({"ok": True, "id": inquiry_id}), 201
+        return jsonify({'ok': False, 'error': 'input too long'}), 400
+    with db() as connection:
+        cursor = connection.execute(
+            'INSERT INTO inquiries (name, phone, service, message, created_at) VALUES (?, ?, ?, ?, ?)',
+            (name, phone, service, message, datetime.now(timezone.utc).isoformat()))
+        connection.commit()
+    return jsonify({'ok': True, 'id': cursor.lastrowid}), 201
 
 
-@app.get("/api/inquiries")
+@app.get('/api/inquiries')
 def list_inquiries():
-    # Protect this endpoint with real admin authentication before deployment.
-    with connection() as db:
-        rows = db.execute(
-            "SELECT id, name, phone, service, message, created_at FROM inquiries ORDER BY id DESC LIMIT 100"
-        ).fetchall()
-    return jsonify({"ok": True, "inquiries": [dict(row) for row in rows]})
+    expected = os.getenv('ADMIN_TOKEN', '')
+    supplied = request.headers.get('X-Admin-Token', '')
+    if not expected or not secrets.compare_digest(supplied, expected):
+        return jsonify({'ok': False, 'error': 'unauthorized'}), 401
+    with db() as connection:
+        rows = connection.execute('SELECT id, name, phone, service, message, created_at FROM inquiries ORDER BY id DESC LIMIT 100').fetchall()
+    return jsonify({'ok': True, 'inquiries': [dict(row) for row in rows]})
 
 
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=int(os.getenv("PORT", "5000")))
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', '5000')))
