@@ -1,41 +1,40 @@
-// Basic service worker - cache-first for app shell, network-first for API/form submissions if desired.
-// NOTE: This is minimal. Adjust cache names and strategies as needed for your site.
-
-const CACHE_NAME = 'jkcorp-shell-v1';
-const STATIC_ASSETS = [
+const CACHE_NAME = 'jkcorp-shell-v3';
+const ASSETS = [
   '/',
   '/index.html',
-  '/assets/css/styles.min.css',
-  '/manifest.json',
-  // add any critical images or icons here
+  '/assets/css/styles.css',
+  '/assets/css/themes.css',
+  '/assets/js/app.js',
+  '/assets/images/logo.svg',
+  '/manifest.json'
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)).catch(() => undefined)
   );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => Promise.all(
+      keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+    ))
+  );
+  self.clients.claim();
 });
 
-self.addEventListener('fetch', event => {
-  const req = event.request;
-  // Network-first for navigation (ensures content updates), fallback to cache
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req).catch(() => caches.match('/index.html'))
-    );
-    return;
-  }
-
-  // For other static assets: try cache first, then network
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
   event.respondWith(
-    caches.match(req).then(cached => cached || fetch(req).then(res => {
-      // Optionally cache fetched assets
-      return res;
-    }))
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+      return fetch(event.request).then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      }).catch(() => caches.match('/index.html'));
+    })
   );
 });
